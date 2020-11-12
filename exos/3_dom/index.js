@@ -49,9 +49,9 @@ squareDiv.style.height = "100px";
 
 section2.appendChild(squareDiv);
 
-squareDiv.addEventListener("mousemove", function (e) {
-  this.style.width = `${e.clientX}px`;
-  this.style.height = `${e.clientY}px`;
+squareDiv.addEventListener("mousemove", (e) => {
+  squareDiv.style.width = `${e.clientX}px`;
+  squareDiv.style.height = `${e.clientY}px`;
 });
 
 // -------------------------------
@@ -74,7 +74,7 @@ const createNameBlock = (nameIndex) => {
   nameBlock.classList.add(names[nameIndex]);
   section3.appendChild(nameBlock);
 
-  nameBlock.addEventListener("click", function () {
+  nameBlock.addEventListener("click", () => {
     nameBlock.remove();
     createNameBlock(Math.floor(Math.random() * names.length));
   });
@@ -109,14 +109,14 @@ const trackingFunction = (event) => {
   trackingFigures.textContent = `${event.clientX}px, ${event.clientY}px`;
 };
 
-trackButton.addEventListener("click", function () {
+trackButton.addEventListener("click", () => {
   if (isButtonActive) {
     document.removeEventListener("mousemove", trackingFunction);
-    this.textContent = trackButtonText.off;
+    trackButton.textContent = trackButtonText.off;
     trackingFigures.remove();
   } else {
     document.addEventListener("mousemove", trackingFunction);
-    this.textContent = trackButtonText.on;
+    trackButton.textContent = trackButtonText.on;
     section4.appendChild(trackingFigures);
   }
 
