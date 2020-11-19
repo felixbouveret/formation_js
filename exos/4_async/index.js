@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // # 5_Asynchrone
 
@@ -23,4 +23,30 @@
 */
 
 const url =
-  'https://raw.githubusercontent.com/iOiurson/data/master/data/tweets.json';
+  "https://raw.githubusercontent.com/iOiurson/data/master/data/tweets.json";
+
+console.log("Exercice 1 --------");
+
+createRandomNumber()
+  .then((r) => {
+    if (r > 50) console.log("Cool !");
+    else {
+      console.log("Pas cool ! :(");
+    }
+  })
+  .catch((err) => console.log(err));
+
+console.log("Exercice 2 --------");
+
+const tryCall = () => {
+  waitForNumber()
+    .then((r) => console.log(r))
+    .catch(() => tryCall());
+};
+
+tryCall();
+
+fetch(url)
+  .then((r) => r.json())
+  .then((r) => console.log(r))
+  .catch((err) => console.log(err));
