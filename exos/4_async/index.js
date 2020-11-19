@@ -46,6 +46,8 @@ const tryCall = () => {
 
 tryCall();
 
+console.log("Exercice 3 --------");
+
 fetch(url)
   .then((r) => r.json())
   .then((r) => console.log(r))
